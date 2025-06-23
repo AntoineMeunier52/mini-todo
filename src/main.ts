@@ -4,9 +4,9 @@ import "./style.css";
 
 import { OhVueIcon, addIcons } from "oh-vue-icons";
 
-import { PxPlus, PxCheck, PxClose, PxEdit, PxCalendarMonth } from "oh-vue-icons/icons";
+import { PxPlus, PxCheck, PxClose, PxEdit, PxCalendarMonth, PxHumanHandsdown } from "oh-vue-icons/icons";
 
-addIcons(PxPlus, PxCheck, PxClose, PxEdit, PxCalendarMonth);
+addIcons(PxPlus, PxCheck, PxClose, PxEdit, PxCalendarMonth, PxHumanHandsdown);
 
 const app = createApp(App);
 app.component("v-icon", OhVueIcon);
