@@ -3,8 +3,8 @@ import { onMounted, ref, watch } from 'vue';
 
 const todoValue = ref("");
 const inputRef = ref<HTMLInputElement | null>(null);
-const todoCustomer = ref("");
-const todoDeadline = ref("");
+const todoCustomer = ref("STEINGENBERGER");
+const todoDeadline = ref("06/12/2023");
 const todoChar = ref(0);
 const flashCharLimit = ref(false);
 
@@ -64,7 +64,7 @@ watch(todoValue, (newValue) => {
 			<v-icon name="px-plus" scale="1.3"></v-icon>
 		  </button>
 		</div>
-		<div class="w-full flex flex-row items-center justify-around px-20 text-gray-600 mb-5">
+		<div class="w-full flex flex-row flex-wrap text-nowrap items-center justify-around text-gray-600 mb-5">
 			<p :class="['transition-all', flashCharLimit ? 'text-red-600 animate-pulse font-bold' : 'text-gray-600']">todo length : {{ todoChar }}/64</p>
 			<p>customer : {{ todoCustomer }}</p>
 			<p>deadline : {{ todoDeadline }}</p>
