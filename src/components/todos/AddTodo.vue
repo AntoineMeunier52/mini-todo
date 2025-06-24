@@ -3,8 +3,8 @@ import { onMounted, ref, watch } from "vue";
 
 const todoValue = ref("");
 const inputRef = ref<HTMLInputElement | null>(null);
-const todoCustomer = ref("STEINGENBERGER");
-const todoDeadline = ref("06/12/2023");
+const todoCustomer = ref("");
+const todoDeadline = ref("");
 const todoChar = ref(0);
 const flashCharLimit = ref(false);
 
