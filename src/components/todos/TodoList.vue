@@ -12,30 +12,38 @@ const isOpen = ref(false);
 </script>
 
 <template>
-  <table class="text-left w-full">
-    <thead class="mb-2">
-      <tr>
-        <th class="w-full">
-          {{ client.clientData.name }}
-        </th>
-        <th v-if="isOpen">
-          <button @click="isOpen = !isOpen">
-            <v-icon name="px-chevron-down" scale="1.5"></v-icon>
-          </button>
-        </th>
-        <th v-else>
-          <button @click="isOpen = !isOpen">
-            <v-icon name="px-chevron-up" scale="1.5"></v-icon>
-          </button>
-        </th>
-      </tr>
-    </thead>
+  <div class="text-left w-full">
+    <div class="mb-2 px-2 flex flex-row items-center">
+      <h3 class="flex-auto">
+        {{ client.clientData.name }}
+      </h3>
+      <button
+        @click="handleAddTodo"
+        class="flex mr-1 justify-center items-center w-7 h-7 shrink-0 rounded bg-green-500 relative transition-all border border-green-500 border-b-[4px] border-b-green-700 hover:bg-green-600 hover:border-green-600 hover:border-b-[3px] hover:border-b-green-800 active:bg-green-700 active:border-green-700 active:border-b-none text-white"
+      >
+        <v-icon name="px-plus" scale="1.3"></v-icon>
+      </button>
+      <button
+        @click="isOpen = !isOpen"
+        v-if="isOpen"
+        class="rounded hover:bg-gray-300"
+      >
+        <v-icon name="px-chevron-down" scale="1.5"></v-icon>
+      </button>
+      <button
+        @click="isOpen = !isOpen"
+        v-else
+        class="rounded hover:bg-gray-300"
+      >
+        <v-icon name="px-chevron-up" scale="1.5"></v-icon>
+      </button>
+    </div>
     <Transition>
-      <tbody v-show="isOpen" class="w-full">
+      <div v-show="isOpen" class="w-full">
         <Todo v-for="todoValue in client.clientData.todos" :value="todoValue" />
-      </tbody>
+      </div>
     </Transition>
-  </table>
+  </div>
 </template>
 
 <style scoped>
