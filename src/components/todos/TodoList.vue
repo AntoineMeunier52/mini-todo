@@ -14,7 +14,7 @@ const isOpen = ref(false);
 <template>
   <div class="text-left w-full">
     <div class="mb-2 px-2 flex flex-row items-center">
-      <h3 class="flex">
+      <h3 class="flex-auto">
         {{ client.clientData.name }}
       </h3>
       <button

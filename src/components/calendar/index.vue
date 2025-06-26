@@ -1,10 +1,10 @@
 <script setup lang="ts">
-import { ref, defineAsyncComponent } from "vue";
+import { ref } from "vue";
 import dayjs from "dayjs";
 
-const Date = defineAsyncComponent(() => import("./Date.vue"));
-const Month = defineAsyncComponent(() => import("./Month.vue"));
-const Year = defineAsyncComponent(() => import("./Year.vue"));
+import Year from "./Year.vue";
+import Month from "./Month.vue";
+import Date from "./Date.vue";
 
 const selectedDateValue = ref(dayjs().date());
 </script>

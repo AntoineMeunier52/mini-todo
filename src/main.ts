@@ -13,6 +13,8 @@ import {
   PxHumanHandsdown,
   PxChevronDown,
   PxChevronUp,
+  PxChevronLeft,
+  PxChevronRight,
 } from "oh-vue-icons/icons";
 
 addIcons(
@@ -23,7 +25,9 @@ addIcons(
   PxCalendarMonth,
   PxHumanHandsdown,
   PxChevronDown,
-  PxChevronUp
+  PxChevronUp,
+  PxChevronLeft,
+  PxChevronRight
 );
 
 const app = createApp(App);
