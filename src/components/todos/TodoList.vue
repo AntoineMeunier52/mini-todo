@@ -14,11 +14,10 @@ const isOpen = ref(false);
 <template>
   <div class="text-left w-full">
     <div class="mb-2 px-2 flex flex-row items-center">
-      <h3 class="flex-auto">
+      <h3 class="flex">
         {{ client.clientData.name }}
       </h3>
       <button
-        @click="handleAddTodo"
         class="flex mr-1 justify-center items-center w-7 h-7 shrink-0 rounded bg-green-500 relative transition-all border border-green-500 border-b-[4px] border-b-green-700 hover:bg-green-600 hover:border-green-600 hover:border-b-[3px] hover:border-b-green-800 active:bg-green-700 active:border-green-700 active:border-b-none text-white"
       >
         <v-icon name="px-plus" scale="1.3"></v-icon>

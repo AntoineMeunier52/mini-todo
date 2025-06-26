@@ -10,13 +10,14 @@ const selectedDateValue = ref(dayjs().date());
 </script>
 
 <template>
-  <div>
-    <div>
+  <!-- v-bing="$attrs" => permet de bind les attribut lors de l'appel du composent dans le composent parent-->
+  <div class="flex space-x-5" v-bind="$attrs">
+    <div class="flex flex-col">
       <Year />
       <Month />
       <Date />
     </div>
-    <div>
+    <div class="w-1/2">
       <span v-if="selectedDateValue">
         You have selected <br />
         {{ `${selectedDateValue}` }}
