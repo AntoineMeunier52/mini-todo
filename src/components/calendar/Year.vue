@@ -1,6 +1,9 @@
 <template>
-  <div class="bg-gray-100 p-3 rounded-t-sm flex flex-row">
-    <div class="flex flex-row">
+  <div class="bg-gray-100 p-3 rounded-t-sm flex flex-row items-center">
+    <div
+      @click="modifyYear(-1)"
+      class="flex flex-row items-center justify-center rounded hover:bg-gray-300 w-7 h-7"
+    >
       <span class="select-none">
         <v-icon name="px-chevron-left"></v-icon>
       </span>
@@ -8,14 +11,23 @@
         <v-icon name="px-chevron-left"></v-icon>
       </span>
     </div>
-    <span class="select-none">
+    <span
+      @click="modifyMonth(-1)"
+      class="flex flex-row items-center justify-center select-none rounded hover:bg-gray-300 w-7 h-7"
+    >
       <v-icon name="px-chevron-left"></v-icon>
     </span>
-    <p class="mx-4">February 2022</p>
-    <span class="select-none">
+    <p class="w-32 mx-4 text-center select-none">{{ showMonth }} {{ year }}</p>
+    <span
+      @click="modifyMonth(1)"
+      class="flex flex-row items-center justify-center select-none rounded hover:bg-gray-300 w-7 h-7"
+    >
       <v-icon name="px-chevron-right"></v-icon>
     </span>
-    <div class="flex flex-row">
+    <div
+      @click="modifyYear(1)"
+      class="flex flex-row items-center justify-center rounded hover:bg-gray-300 w-7 h-7"
+    >
       <span class="select-none">
         <v-icon name="px-chevron-right"></v-icon>
       </span>
@@ -27,7 +39,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from "vue";
+import { computed, ref } from "vue";
 import dayjs from "dayjs";
 
 const emit = defineEmits<{
@@ -40,21 +52,41 @@ const month = ref<number>(dayjs().month());
 
 function modifyYear(v: number) {
   year.value += v;
-  emit("yearSelected", year.value);
+  console.log(year.value);
+  //emit("yearSelected", year.value);
 }
 
 function modifyMonth(v: number) {
-  if (v === 12) {
-    month.value = 0;
-    return;
+  let temp = month.value + v;
+  if (temp === 12) {
+    temp = 0;
+    modifyYear(1);
+  } else if (temp === -1) {
+    temp = 11;
+    modifyYear(-1);
   }
-  if (v === -1) {
-    month.value = 11;
-    return;
-  }
-  month.value += v;
-  emit("monthSelected", year.value);
+  month.value = temp;
+  console.log("mois modifié", month.value, "=>", showMonth.value);
+  //emit("monthSelected", year.value);
 }
+
+const showMonth = computed(() => {
+  const monthList = [
+    "January",
+    "February",
+    "March",
+    "April",
+    "May",
+    "June",
+    "July",
+    "August",
+    "September",
+    "October",
+    "November",
+    "December",
+  ];
+  return monthList[month.value];
+});
 </script>
 
 <style scoped></style>
